@@ -20,10 +20,10 @@ public class SignupService {
     
     try {
       Integer count = jdbcTemplate.queryForObject(
-        "SELECT COUNT(*) FROM authservice_users WHERE email = ?",
+        "SELECT COUNT(*) FROM \"authservice_users\" WHERE \"email\" = ?",
         Integer.class,
         request.getEmail()
-      );
+    );
 
       System.out.println("Users count: " + count);
 
