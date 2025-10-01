@@ -13,3 +13,21 @@ public class AuthserviceApplication {
 	}
 	
 }
+
+/*
+ * Routes for auth service:
+ * POST /signup
+ * 	- Hash password with BCrypt.
+ * 	- Save user to DB with status = PENDING_VERIFICATION.
+ *  - Send email with verification token.
+ * 
+ * GET /verify?token=
+ * 	- Look up user by token.
+ *  - If valid → set status = ACTIVE
+ * 
+ * POST /signin
+ * 
+ * POST /reset
+ * 
+ * POST /changepassword
+*/

@@ -11,9 +11,11 @@ import com.myl117.authservice.authservice.exception.UserAlreadyExistsException;
 @Service
 public class SignupService {
   private final JdbcTemplate jdbcTemplate;
+  private final JwtService jwtService;
 
-  public SignupService(JdbcTemplate jdbcTemplate) {
+  public SignupService(JdbcTemplate jdbcTemplate, JwtService jwtService) {
     this.jdbcTemplate = jdbcTemplate;
+    this.jwtService = jwtService;
   }
 
   public void Signup(SignupRequest request) {
@@ -34,7 +36,10 @@ public class SignupService {
      PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
      String hashedPassword = passwordEncoder.encode(request.getPassword());
 
-     String sql = "INSERT INTO authservice_users (name, email, password) VALUES (?, ?, ?)";
-     jdbcTemplate.update(sql, request.getName(), request.getEmail(), hashedPassword);
+     String sql = "INSERT INTO authservice_users (name, email, password, status) VALUES (?, ?, ?, ?)";
+     jdbcTemplate.update(sql, request.getName(), request.getEmail(), hashedPassword, "PENDING_VERIFICATION");
+
+     String token = jwtService.generateToken(request.getEmail());
+     System.out.println(token);
   }
 }
