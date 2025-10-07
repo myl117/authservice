@@ -43,6 +43,7 @@ public class SignupService {
     jdbcTemplate.update(sql, request.getName(), request.getEmail(), hashedPassword, "PENDING_VERIFICATION");
 
     String token = jwtService.generateToken(request.getEmail());
+    System.out.println(token);
     emailService.sendVerificationEmail(request.getName(), request.getEmail(), token);
   }
 }
