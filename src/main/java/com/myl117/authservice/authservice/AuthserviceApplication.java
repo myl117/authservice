@@ -26,8 +26,14 @@ public class AuthserviceApplication {
  *  - If valid → set status = ACTIVE
  * 
  * POST /signin
+ *  - Look up user by credentials
+ *  - If not valid, return status code 401
+ * 	- else send JWT token
  * 
  * POST /reset
  * 
  * POST /changepassword
+ * 
+ * GET /status
+ *   - Returns auth status and how long before session expires
 */

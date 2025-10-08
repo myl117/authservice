@@ -11,7 +11,7 @@ import com.myl117.authservice.authservice.exception.UserAlreadyExistsException;
 @Service
 public class SignupService {
 
-    private final EmailService emailService;
+  private final EmailService emailService;
   private final JdbcTemplate jdbcTemplate;
   private final JwtService jwtService;
 
