@@ -31,6 +31,9 @@ public class AuthserviceApplication {
  * 	- else send JWT token
  * 
  * POST /reset
+ *  - User sends email
+ *  - Send email to user with reset token
+ *  - This token can then be used with /changepassword
  * 
  * POST /changepassword
  * 

@@ -44,4 +44,20 @@ public class EmailService {
       throw new RuntimeException("Failed to send email");
     }
   }
+
+  public void sendPasswordResetEmail(String toEmail, String token) {
+    try {
+    String passwordResetLink = "http://localhost:3008/api/auth/changepassword?token=" + token;
+
+    String subject = "Change your password";
+    String body = "<p>Hi</p>"
+                + "<p>Please reset your password by clicking the link below:</p>"
+                + "<p><a href='" + passwordResetLink + "'>Reset Password</a></p>"
+                + "<br><p>If you did not sign up, please ignore this email.</p>";
+
+    sendEmail(toEmail, subject, body);
+    } catch (MessagingException e) {
+      throw new RuntimeException("Failed to send email");
+    }
+  }
 }
