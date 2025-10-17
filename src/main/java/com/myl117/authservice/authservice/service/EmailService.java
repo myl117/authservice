@@ -49,6 +49,8 @@ public class EmailService {
     try {
     String passwordResetLink = "http://localhost:3008/api/auth/changepassword?token=" + token;
 
+    System.out.println(passwordResetLink);
+
     String subject = "Change your password";
     String body = "<p>Hi</p>"
                 + "<p>Please reset your password by clicking the link below:</p>"

@@ -36,6 +36,9 @@ public class AuthserviceApplication {
  *  - This token can then be used with /changepassword
  * 
  * POST /changepassword
+ *  - Takes in reset token and new password
+ *  - Change password
+ *  - Send status back to user
  * 
  * GET /status
  *   - Returns auth status and how long before session expires

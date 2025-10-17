@@ -4,6 +4,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.security.Key;
@@ -12,7 +13,9 @@ import java.util.Date;
 @Service
 public class JwtService {
 
-    private final String secret = "+eVbSYTDyFL5/dRYIce1RD6GUZaiUcxPgLdGmEAb8HYgdnhL+POTzRlFdrCU1vJA"; // TODO: need to move to env later
+    @Value("${jwt.secret}")
+    private String secret;
+
     private final long expirationMs =  60 * 60 * 1000; // 1 hour (60 mins)
 
     private Key getSigningKey() {
