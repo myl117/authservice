@@ -13,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import com.myl117.authservice.authservice.dto.SignupRequest;
 import com.myl117.authservice.authservice.exception.UserAlreadyExistsException;
@@ -33,6 +34,7 @@ public class SignupServiceTests {
    @BeforeEach
     void setUp() {
       jwtService = new JwtService();
+      ReflectionTestUtils.setField(jwtService, "secret", "test-secret-key-that-is-at-least-32-chars-long!!");
       signupService = new SignupService(jdbcTemplate, jwtService, emailService);
     }
 
