@@ -5,17 +5,17 @@
 ![Auth](https://img.shields.io/badge/Auth-JWT-purple?style=flat-square&logo=jsonwebtokens)
 ![Database](https://img.shields.io/badge/Database-PostgreSQL-blue?style=flat-square&logo=postgresql)
 
-A stateless authentication microservice built with Spring Boot. Handles user registration, email verification, sign-in, password reset, and password changes — all secured with JWT.
+A stateless authentication microservice built with Spring Boot. Handles user registration, email verification, sign-in, password reset, and password changes, all secured with JWT.
 
 ---
 
 ## Features
 
-- **Sign Up** — Register a new user account (password hashed with BCrypt)
-- **Email Verification** — Confirm email via a tokenised link before gaining access
-- **Sign In** — Authenticate and receive a signed JWT
-- **Password Reset** — Request a reset link sent to the registered email
-- **Change Password** — Submit a new password using a valid reset token
+- **Sign Up** Register a new user account (password hashed with BCrypt)
+- **Email Verification** Confirm email via a tokenised link before gaining access
+- **Sign In** Authenticate and receive a signed JWT
+- **Password Reset** Request a reset link sent to the registered email
+- **Change Password** Submit a new password using a valid reset token
 
 ---
 
